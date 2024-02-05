@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+  <title>OTP Verification</title>
+  <link rel="stylesheet" href="{% static 'css/otplogin.css' %}" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="{% static 'js/otplogin.js' %}" defer></script>
+  <style>
+    body {
+      min-height: 100vh;
+      position: relative;
+      /*background: linear-gradient(180deg, #090808, #1c1c1c);*/
+      background: url('https://i.ibb.co/fvDfF8t/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <i class="bx bxs-check-shield"></i>
+    </header>
+    <h4>Enter OTP Code</h4>
+    <form action="" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <div class="input-field">
+        <input type="number" name="d1" />
+        <input type="number" name="d2" disabled />
+        <input type="number" name="d3" disabled />
+        <input type="number" name="d4" disabled />
+        <input type="number" name="d5" disabled />
+        <input type="number" name="d6" disabled />
+      </div>
+      <button type="submit">Verify OTP</button>
+    </form>
+  </div>
+</body>
+
+</html>

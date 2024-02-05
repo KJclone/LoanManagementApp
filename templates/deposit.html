@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <title>Deposit Amount</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            min-height: 100vh;
+            position: relative;
+            background: #E4E9F7;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        form {
+            background-color: #1d1b31;
+            /* Form background color */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #5372F0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5372F0;
+            /* Link color */
+        }
+
+        button {
+            background-color: #5372F0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div style="align-self: center; display: flex; justify-self: center;width: 400px;margin-top: 250px;">
+            <form action="" method="POST" autocomplete="off">
+                Enter Amount you wish to Deposit
+                {% csrf_token %}
+                <input type="text" name="amount" style="color: #1d1b31;">
+                <input type="submit">
+            </form>
+        </div>
+    </center>
+</body>
+
+</html>

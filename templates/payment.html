@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <title>Payment</title>
+    <style>
+        body {
+            position: relative;
+            /*background: linear-gradient(180deg, #090808, #1c1c1c);*/
+            background-color: #E4E9F7;
+        }
+
+        span {
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+
+
+            /* Adjust the spacing from the top as needed */
+        }
+
+
+        .container {
+            align-self: center;
+            height: 45px;
+            width: 150px;
+            background-color: #11101d;
+            /* Form background color */
+            padding: 20px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Add a subtle box shadow */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="align-content: center;margin-left: 45%;">
+        <center><span>Confirm Payment</span><br>
+            <!-- Razorpay Payment Button -->
+            <form action='success/{{amount}}' method="POST">
+                {% csrf_token %}
+                <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_dpDRfzpKVyKDkb"
+                    data-amount="{{amount}}" data-currency="INR" data-name="My Store"
+                    data-description="Payment for products" data-order_id="">
+                    </script>
+            </form>
+        </center>
+    </div>
+</body>
+
+</html>

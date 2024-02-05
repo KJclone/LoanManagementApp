@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Signup</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+  <style>
+    body {
+      min-height: 100vh;
+      position: relative;
+      /*background: linear-gradient(180deg, #090808, #1c1c1c);*/
+      background: url('https://i.ibb.co/fvDfF8t/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  {% if error %}
+  <script>
+    alert("{{error}}")
+  </script>
+  {% endif %}
+  <section class="container">
+    <header style="font-weight: 40000;">Registration Form</header>
+    <form action="" method="POST" class="form" autocomplete="off">
+      {% csrf_token %}
+      <div class="input-box">
+        <label><b>Full Name</b></label>
+        <input type="text" name="name" placeholder="Enter full name" required />
+      </div>
+      <div class="input-box">
+        <label><b>Email Address</b></label>
+        <input type="text" name="email" placeholder="Enter email address" required />
+      </div>
+
+      <div class="column">
+        <div class="input-box">
+          <label><b>Phone Number</b></label>
+          <input type="number" name="number" placeholder="Enter phone number" required />
+        </div>
+      </div>
+      <div class="input-box">
+        <label><b>PAN Number</b></label>
+        <input type="text" name="pan" placeholder="Enter PAN Number" required />
+      </div>
+      <div class="input-box">
+        <label><b>Create Password</b></label>
+        <input type="text" name="password" placeholder="Create a strong password" required />
+      </div>
+      <div class="input-box">
+        <label><b>Confirm Password</b></label>
+        <input type="password" name="confirmpassword" placeholder="Confirm your password" required />
+      </div>
+      <button type="submit" style="background-color: #5372F0;"><b>Submit</b></button>
+    </form>
+  </section>
+</body>
+
+</html>

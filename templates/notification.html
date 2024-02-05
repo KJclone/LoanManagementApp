@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="3">
+  <link rel="stylesheet" href="{% static 'css/viewapplications.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification</title>
+  <style>
+    body {
+      min-height: 100vh;
+      position: relative;
+      /*background: linear-gradient(180deg, #090808, #1c1c1c);*/
+      background: url('https://i.ibb.co/fvDfF8t/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="rwd-table">
+    <tbody>
+      <tr>
+        <th>Message</th>
+        <th>Time</th>
+        <th>Date</th>
+      </tr>
+      {% for x in notifications reversed %}
+      {% if x.LenderMail == currentusermail or x.BorrowerMail == currentusermail %}
+      <tr>
+        <td data-th="Message">
+          {{x.Message}}
+        </td>
+        <td data-th="Time">
+          {{x.Time}}
+        </td>
+        <td data-th="Date">
+          {{x.Date}}
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+
+</html>
